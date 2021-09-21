@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container">
+    <h2 class="text-center text-primary">All Patients</h2>
+        <table class="table border">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Mobile</th>
+                <th>Age</th>
+                <th>Branch</th>
+                <th>Staff</th>
+                <th>Date</th>
+            </tr>
+            {% for foo in allPatient %}
+                <tr>
+                <td>{{ foo.id }}</td>
+                <td>{{ foo.name }}</td>
+                <td>{{ foo.mobile }}</td>
+                <td>{{ foo.age }}</td>
+                <td>{{ foo.user.branch }}</td>
+                <td>{{ foo.user.first_name }}{{ foo.user.last_name }}</td>
+                <td>{{ foo.date }}</td>
+                </tr>
+            {% endfor %}
+
+        </table>
+    </div>
+{% endblock %}

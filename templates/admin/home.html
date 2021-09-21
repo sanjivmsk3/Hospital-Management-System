@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid mt-4">
+    <div class="row">
+        <div class="col-2">
+        <div class="list-group">
+          <a href="{% url 'superadmin' %}" class="list-group-item list-group-item-action active" aria-current="true">Dashboard</a>
+          <a href="{% url 'add-branch' %}" class="list-group-item list-group-item-action" aria-current="true">Add Branch</a>
+          <a href="{% url 'add-doctor' %}" class="list-group-item list-group-item-action">Add Doctor</a>
+          <a href="{% url 'add-staff' %}" class="list-group-item list-group-item-action">Add Staff</a>
+          <a href="{% url 'all-patient' %}" class="list-group-item list-group-item-action">All Patient</a>
+        </div>
+    </div>
+        <div class="col-10">
+            <div class="row">
+                <div class="col-4">
+                <h2 class="text-center text-primary">All Branch</h2>
+                    <table class="table border">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Amount Per Patient</th>
+                        </tr>
+                        {% for foo in allBranch %}
+                            <tr>
+                            <td>{{ foo.id }}</td>
+                            <td>{{ foo.name }}</td>
+                            <td>{{ foo.amount }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="col-4">
+                <h2 class="text-center text-primary">All Doctor</h2>
+                    <table class="table border">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Branch</th>
+                            <th>Mobile</th>
+                        </tr>
+                        {% for foo in allDoctor %}
+                            <tr>
+                            <td>{{ foo.id }}</td>
+                            <td>{{ foo.first_name }} {{ foo.last_name }}</td>
+                            <td>{{ foo.branch }}</td>
+                            <td>{{ foo.mobile }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+                <div class="col-4">
+                <h2 class="text-center text-primary">All Staff</h2>
+                    <table class="table border">
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Branch</th>
+                            <th>Mobile</th>
+                        </tr>
+                        {% for foo in allStaff %}
+                            <tr>
+                            <td>{{ foo.id }}</td>
+                            <td>{{ foo.first_name }} {{ foo.last_name }}</td>
+                            <td>{{ foo.branch }}</td>
+                            <td>{{ foo.mobile }}</td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
