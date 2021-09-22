@@ -11,6 +11,7 @@
                 <th>Age</th>
                 <th>Branch</th>
                 <th>Staff</th>
+                <th>Fee</th>
                 <th>Date</th>
             </tr>
             {% for foo in allPatient %}
@@ -21,6 +22,7 @@
                 <td>{{ foo.age }}</td>
                 <td>{{ foo.user.branch }}</td>
                 <td>{{ foo.user.first_name }}{{ foo.user.last_name }}</td>
+                <td>₹. {{ foo.user.branch.amount }} /-</td>
                 <td>{{ foo.date }}</td>
                 </tr>
             {% endfor %}

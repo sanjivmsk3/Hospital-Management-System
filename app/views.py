@@ -28,9 +28,9 @@ class Logins(View):
             login(request, user)
             if request.user.is_superuser is True:
                 return redirect('superadmin')
-            elif request.user.is_staff:
+            elif request.user.is_staff is True:
                 return redirect('doctor')
-            elif request.user.is_active:
+            elif request.user.is_active is True:
                 return redirect('staff')
             else:
                 logout(request)
