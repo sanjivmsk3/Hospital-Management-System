@@ -24,3 +24,11 @@ class Paitent(models.Model):
 
     def __str__(self):
         return self.name
+
+    def dat(self):
+        date = self.date.date()
+        if date == date:
+            s = 0
+            total = s + 1
+
+        return total

@@ -1,6 +1,7 @@
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.shortcuts import render, redirect
+from django.utils import timezone
 from django.views.generic.base import View
 from app.forms import *
 
@@ -57,11 +58,16 @@ class SuperAdmin(LoginRequiredMixin,View):
             logout(request)
             return redirect('login')
 
+from datetime import date, timedelta
 
 class Doctor(LoginRequiredMixin,View):
     def get(self, request):
         if request.user.is_staff:
-            return render(request, 'doctor/home.html')
+
+            context ={
+                'datse':Paitent.objects.all(),
+            }
+            return render(request, 'doctor/home.html',context)
         else:
             logout(request)
             return redirect('login')
